@@ -2,7 +2,6 @@ package com.ns.saralaform;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -58,4 +57,18 @@ public class FromController {
         repo.save(registeration);
         return registeration;
     }
+
+    //DELETE
+    @DeleteMapping("/customers/{id}")
+    public void getCustomers4(@PathVariable("id") int id){
+        repo.deleteById(id);
+    }
+
+    //UPDATE
+    @PutMapping(path = "/customers", consumes = {"application/json"})
+    public void getCustomers4(@RequestBody Registeration registeration){
+        repo.save(registeration);
+    }
+
+
 }
